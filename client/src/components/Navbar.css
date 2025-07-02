@@ -1,0 +1,110 @@
+/* ====== DARK MODE NAVBAR ====== */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(24, 24, 24, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 16px #000a;
+    transition: background 0.3s;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+/* Logo */
+.logo-brand a {
+    color: #ffb800;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    text-shadow: 0 2px 8px #0008;
+}
+
+.logo-brand a:hover,
+.logo-brand a:focus {
+    color: #fffbe7;
+}
+
+/* Nav Menu */
+nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fffbe7;
+    font-size: 1.08rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 
+        background 0.18s,
+        color 0.18s,
+        box-shadow 0.18s,
+        transform 0.18s;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px #0007;
+}
+
+nav ul li a.active,
+nav ul li a:hover,
+nav ul li a:focus {
+    background: #ffb800;
+    color: #181818;
+    box-shadow: 0 2px 12px #ffb80033;
+    transform: translateY(-2px) scale(1.07);
+}
+
+/* Responsive Navbar */
+@media (max-width: 900px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 0 12px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 12px;
+    }
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 8px;
+        text-align: left;
+    }
+    .logo-brand {
+        margin-bottom: 8px;
+    }
+}
+
+/* Add some spacing below the fixed navbar for page content */
+body {
+    padding-top: 70px;
+    background: #181818;
+}

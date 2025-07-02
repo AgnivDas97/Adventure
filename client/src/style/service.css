@@ -1,0 +1,124 @@
+/* Service Page Container */
+.service-page {
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+    padding: 32px 16px;
+    background: linear-gradient(120deg, #232323 0%, #181818 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #0008, 0 1.5px 8px #ffb80022;
+    color: #fffbe7;
+    animation: fadeInBg 1.2s;
+}
+
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.service-page h1 {
+    color: #ffb800;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Service Table */
+.service-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #232323cc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px #ffb80011;
+}
+
+.service-table th, .service-table td {
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 1.05rem;
+}
+
+.service-table th {
+    background: #181818;
+    color: #ffb800;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ffb80033;
+}
+
+.service-table td {
+    color: #fffbe7;
+    border-bottom: 1px solid #444;
+    vertical-align: middle;
+}
+
+.service-table tr:last-child td {
+    border-bottom: none;
+}
+
+.service-table input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ffb800;
+    cursor: pointer;
+    transition: box-shadow 0.18s;
+}
+
+.service-table button {
+    background: #ffb800;
+    color: #181818;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 8px #ffb80022;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.service-table button:last-child {
+    margin-right: 0;
+    background: #232323;
+    color: #ffb800;
+    border: 1.5px solid #ffb800;
+}
+
+.service-table button:hover,
+.service-table button:focus {
+    background: #fffbe7;
+    color: #ffb800;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 16px #ffb80044;
+}
+
+.service-table button:last-child:hover,
+.service-table button:last-child:focus {
+    background: #ffb800;
+    color: #181818;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .service-page {
+        padding: 12px 2px;
+    }
+    .service-table th, .service-table td {
+        padding: 8px 4px;
+        font-size: 0.98rem;
+    }
+    .service-page h1 {
+        font-size: 1.3rem;
+    }
+    .service-table button {
+        padding: 6px 10px;
+        font-size: 0.95rem;
+    }
+}
