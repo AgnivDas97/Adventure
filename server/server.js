@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors'; // Import CORS middleware
 import 'dotenv/config'; // Load environment variables from .env file
 import authRoute from './router/auth-router.js';
-import contactRoute from './router/contact-router.js'; // Import the contact route
+import userRoute from './router/user-router.js'; // Import the contact route
 import connectDb from './utils/db.js'; // Import the database connection function
 import errorMiddleware from './middlewares/error-middleware.js';
-
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
@@ -19,10 +19,10 @@ app.use(cors({
 }));
 
 app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(cookieParser());
 
 app.use('/', authRoute); // Authentication routes
-app.use('/form', contactRoute); // Contact form routes
-
+app.use('/user', userRoute); // Contact form routes
 
 app.use(errorMiddleware); // Error handling middleware
 

@@ -1,35 +1,73 @@
-import {BrowserRouter, Router, Route, Routes} from 'react-router-dom'
-import './App.css'
-import React from 'react'
-import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Service from './pages/Service'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Navbar from './components/Navbar'
-import ErrorPage from './pages/ErrorPage'
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import "./App.css";
+import React from "react";
+import Navbar from "./components/Navbar";
+import ErrorPage from "./pages/ErrorPage";
+import Adventure from "./pages/Adventure";
+import CreateAccount from "./pages/CreateAccount";
+import SignIn from "./pages/SignIn";
+import HomePage from "./pages/HomePage";
+import UploadSection from "./pages/UploadSection";
+import NotificationPage from "./pages/NotificationPage";
+import UserProfile from "./pages/UserProfile";
+import ContactUs from "./pages/ContactUs";
+import { AuthProvider } from "./Store/auth";
+import { useAuth } from "./Store/auth";
+import { ToastContainer, Zoom } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
-
   return (
-    <>
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          {/* void element- <home/> doesn't have any closing tab*/}
-          <Route path="/" element={<Home/>} /> 
-          <Route path="/about" element={<About/>} />
-          <Route path="/service" element={<Service/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="*" element={<ErrorPage/>} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+    <BrowserRouter>
+      <AuthProvider>
+        <MainApp />
+      </AuthProvider>
+      <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Zoom}
+        />
+    </BrowserRouter>
+  );
 }
 
-export default App
+function MainApp() {
+  const location = useLocation();
+  const { isLoggedIn } = useAuth();
+
+
+  const hideNavbarPaths = ["/", "/create-account", "/sign-in"];
+
+  const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
+  console.log(isLoggedIn,"isLoggedIn")
+  return (
+    <>
+      {!shouldHideNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Adventure />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        {isLoggedIn && (
+          <>
+            <Route path="/home-page" element={<HomePage />} />
+            <Route path="/upload-section" element={<UploadSection />} />
+            <Route path="/notifications" element={<NotificationPage />} />
+            <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </>
+        )}
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;

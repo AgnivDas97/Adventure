@@ -64,7 +64,7 @@ userSchema.methods.generateToken = async function () {
         return jwt.sign(
             { userId: this._id, email: this.email, isAdmin: this.isAdmin }, // Payload containing user ID and admin status
             process.env.JWT_SECRET, // Secret key for signing the token
-            { expiresIn: '1h' } // Token expiration time
+            { expiresIn: '10h' } // Token expiration time
         );
     } catch (error) {
         console.error('Error generating token:', error);

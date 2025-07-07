@@ -1,0 +1,121 @@
+.contact-page {
+  display: flex;
+  justify-content: space-between;
+  background-color: #111827;
+  color: #f9fafb;
+  padding: 2rem;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  flex-wrap: wrap; /* allow wrap on small screens */
+}
+
+.contact-left, .contact-right {
+  flex: 1;
+  min-width: 280px; /* prevent collapsing */
+}
+
+.contact-left {
+  margin-right: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.contact-item i {
+  margin-right: 0.8rem;
+  color: #3b82f6;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.contact-title {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.contact-text {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 1px solid #374151;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: #f9fafb;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.contact-form button {
+  margin-top: 1rem;
+  background-color: #f59e0b;
+  border: none;
+  color: #111827;
+  padding: 0.4rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact-form button:hover {
+  background-color: #d97706;
+}
+
+/* ✅ Responsive for mobile: */
+@media (max-width: 768px) {
+  .contact-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-left {
+    margin: 2rem 0 0 0;
+    order: 2; /* move contact info below form */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .contact-item i {
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-right {
+    order: 1;
+    width: 100%;
+    max-width: 400px;
+  }
+}

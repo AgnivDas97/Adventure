@@ -12,7 +12,7 @@ const validate=(schema)=>async(req, res, next)=>{
     } catch (error) {
         // res.status(400).json({ message: error.errors[0].message }); // Handle validation errors
         const getError={
-            statusCode: 400,
+            status: 400,
             message: error.errors[0].message, // Extract the error message from the validation error
             extraDetails: error.errors, // Include extra details about the validation error
         };

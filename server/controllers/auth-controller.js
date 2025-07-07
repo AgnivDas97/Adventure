@@ -47,9 +47,9 @@ const register = async (req, res) => {
             password:password,
             phone:phone,
         });
-        console.log(userCreated)
+        console.log(userCreated,"userCreated register")
         res.status(201).json({ 
-            msg: 'Registration Successful',  
+            message: 'Registration Successful',  
             token : await userCreated.generateToken(),userId:userCreated._id.toString() 
         }); // Send the created user as a response
         console.log("user created sucessfully")
@@ -57,7 +57,7 @@ const register = async (req, res) => {
         console.error('Error in register controller:', error);
         // res.status(500).json({ message: 'Internal server error' });
         const getError={
-            statusCode: 500,
+            statu: 500,
             message: error.errors[0].message, // Extract the error message from the validation error
             extraDetails: error.errors, // Include extra details about the validation error
         };
@@ -84,18 +84,37 @@ const login = async (req, res) => {
         // const isPasswordValid = await bcrypt.compare(password, existingUser.password) //existingUser.comparePassword(password);
         const user =  await existingUser.comparePassword(password)
         console.log(user)
+
+        
         if (!user) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
+
+        const token = await existingUser.generateToken();
+
+        res.cookie("jwtoken", token, {
+            expires:new Date(Date.now() + 25892000000),
+            httpOnly:true,
+            secure: true,
+            sameSite: 'Strict'
+        })
+
+
         res.status(201).json({ 
-            msg: 'Login Successful', 
-            token : await existingUser.generateToken(), 
+            message: 'Login Successful', 
+            token : token, 
             userId: existingUser._id.toString() 
         }); // Send the created user as a response
     } catch (error) {
         console.error('Error in login controller:', error);
         // res.status(500).json({ message: 'Internal server error' });
-        next(error); // Pass the error to the next middleware
+        const getError={
+            statu: 500,
+            message: error.errors[0].message, // Extract the error message from the validation error
+            extraDetails: error.errors, // Include extra details about the validation error
+        };
+        next(getError);
+        // next(error); // Pass the error to the next middleware
     }
 }
 //#endregion
