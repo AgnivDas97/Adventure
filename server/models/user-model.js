@@ -26,6 +26,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    pic:{
+        type: String, 
+        required: false, 
+        default: "https://www.pngwing.com/en/search?q=user"
+    },
     isAdmin: {
         type: Boolean,
         default: false, // Sets the default value to false

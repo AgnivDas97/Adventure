@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <header className="navbar">
-      <h1 >
+      <h1 className="link-text">
         <NavLink to="/home-page">
         <div className="logo">
             Adventure
@@ -45,6 +45,9 @@ const Navbar = () => {
         </NavLink>
         <NavLink to="/peoples" className="navlink">
           <i className="fas fa-user"></i> <span className="link-text">Peoples</span>
+        </NavLink>
+        <NavLink to="/messages" className="navlink">
+          <i className="fa-solid fa-message"></i> <span className="link-text">Message</span>
         </NavLink>
         <NavLink to="/upload-section" className="navlink">
           <i className="fas fa-pen"></i> <span className="link-text">Create</span>

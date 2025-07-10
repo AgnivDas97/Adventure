@@ -14,6 +14,7 @@ import ContactUs from "./pages/ContactUs";
 import { AuthProvider } from "./Store/auth";
 import { useAuth } from "./Store/auth";
 import { ToastContainer, Zoom } from "react-toastify";
+import Chatpage from "../chat-module/Chatpage";
 // import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -62,6 +63,7 @@ function MainApp() {
             <Route path="/notifications" element={<NotificationPage />} />
             <Route path="/user-profile" element={<UserProfile />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/messages" element={<Chatpage/>} />
           </>
         )}
         <Route path="*" element={<ErrorPage />} />

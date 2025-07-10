@@ -53,12 +53,28 @@ body {
   display: inline; /* show text by default */
 }
 
-/* Mobile: hide text, show icons only */
+
+/* Mobile view (max-width: 600px): show only icons, hide text, reduce spacing */
 @media (max-width: 600px) {
   .link-text {
-    display: none;
+    display: none; 
+  }
+
+  .nav-links {
+    gap:3rem;         
+    justify-content: center; 
+  }
+
+  .navlink, .profile-btn {
+    font-size: 1.2rem; 
+  }
+
+  .navbar {
+    padding: 0.5rem 1rem;
   }
 }
+ 
+
 
 
 
