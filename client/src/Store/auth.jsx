@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setUser(data);
+        console.log(data, "user data in AuthProvider")
       } else {
         console.log("userAuthentication failed");
       }
@@ -51,6 +52,9 @@ export const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+ console.log(user, token,selectedChat,chats,notification,"user in AuthProvider");
+ 
 
   return (
     <AuthContext.Provider

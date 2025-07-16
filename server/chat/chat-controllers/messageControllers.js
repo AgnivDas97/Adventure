@@ -17,6 +17,7 @@ export const sendMessage = async (req, res) => {
     chat: chatId,
   };
 
+  // console.log("newMessage", newMessage);
   try {
     var message = await Message.create(newMessage);
 
@@ -29,25 +30,10 @@ export const sendMessage = async (req, res) => {
 
     await Chat.findByIdAndUpdate(req.body.chatId, { latestMessage: message });
 
-    const chat = await Chat.findById(req.body.chatId).populate("users", "-password");
-    chat.users.forEach(user => {
-      if (user._id.toString() !== req.user._id.toString()) {
-        user.unreadMessages = (user.unreadMessages || 0) + 1; // Increment unread messages count
-        user.save(); // Save the updated user
-      }
-    });
-
-    // Update the unread messages count for the sender
-    const sender = await User.findById(req.user._id);
-    if (sender) {
-      sender.unreadMessages = (sender.unreadMessages || 0) + 1; // Increment unread messages count
-      await sender.save(); // Save the updated sender
-    }
-
-    console.log(message,"check message");
-
-    return res.status(200).json({ message: "Message sent successfully", message });
-
+    // console.log(message,"check message");
+    res.json(message);
+    // return res.status(200).json({ message: "Message sent successfully", message });
+  
   } catch (error) {
     res.status(400);
     throw new Error(error.message);

@@ -16,12 +16,12 @@ export const accesChat = async (req, res, next) => {
     ],
   })
     .populate("users", "-password").populate("latestMessage");
-  console.log(isChat,"isChat accessChat 1")
+  //console.log(isChat,"isChat accessChat 1")
   isChat = await User.populate(isChat, {
     path: "latestMessage.sender",
     select: "name pic email",
   });
-  console.log(isChat,"isChat accessChat 2")
+  //console.log(isChat,"isChat accessChat 2")
   if (isChat.length > 0) {
     res.send(isChat[0]);
   } else {

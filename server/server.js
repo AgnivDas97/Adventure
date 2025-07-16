@@ -8,6 +8,8 @@ import errorMiddleware from './middlewares/error-middleware.js';
 import cookieParser from 'cookie-parser';
 import chatRoute from './chat/chat-router/chatRoutes.js'; // Import chat routes
 import messageRoutes from './chat/chat-router/messageRoutes.js'; // Import message routes
+import uploadRoute from './UploadModule/userUploadRoute.js'; // Import user upload routes
+import peopleRoute from './Peoples/peopleRoute.js'
 // Soket.io setup
 import { Server } from 'socket.io';
 // import { addUser, removeUser, getUser, getUsersInRoom } from './utils/socketUtils.js';
@@ -30,7 +32,8 @@ app.use('/', authRoute); // Authentication routes
 app.use('/user', userRoute); // Contact form routes
 app.use('/chat', chatRoute)
 app.use('/messages',messageRoutes)
-
+app.use('/upload', uploadRoute) // User upload routes
+app.use('/peoples',peopleRoute)
 
 app.use(errorMiddleware); // Error handling middleware
 
@@ -53,15 +56,21 @@ const io = new Server(server, {
 
 
 io.on("connection", (socket) => {
-  console.log("Connected to socket.io");
+  //console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
+    // //console.log("User Data Received: ", userData);
+    if(!userData){
+      //console.log("User Data is undefined or null");
+      return socket.emit("error", "User data is required for setup");
+    }
+    
     socket.join(userData._id);
     socket.emit("connected");
   });
 
   socket.on("join chat", (room) => {
     socket.join(room);
-    console.log("User Joined Room: " + room);
+    //console.log("User Joined Room: " + room);
   });
 
   socket.on("typing", (room) => socket.in(room).emit("typing"));
@@ -70,7 +79,7 @@ io.on("connection", (socket) => {
   socket.on("new message", (newMessageRecieved) => {
     var chat = newMessageRecieved.chat;
 
-    if (!chat.users) return console.log("chat.users not defined");
+    if (!chat.users) return //console.log("chat.users not defined");
 
     chat.users.forEach((user) => {
       if (user._id == newMessageRecieved.sender._id) return;
@@ -80,7 +89,7 @@ io.on("connection", (socket) => {
   });
 
   socket.off("setup", () => {
-    console.log("USER DISCONNECTED");
+    //console.log("USER DISCONNECTED");
     socket.leave(userData._id);
   });
 });

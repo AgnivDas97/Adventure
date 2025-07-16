@@ -10,7 +10,7 @@ const connectDb = async () => {
       useNewUrlParser: true, // Use the new URL parser
       useUnifiedTopology: true, // Use the new Server Discover and Monitoring engine
     });
-    console.log("MongoDB connected successfully");
+    //console.log("MongoDB connected successfully");
   } catch (error) {
     console.error("MongoDB connection error:", error);
   }

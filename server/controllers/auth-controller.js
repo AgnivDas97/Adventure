@@ -47,12 +47,12 @@ const register = async (req, res) => {
             password:password,
             phone:phone,
         });
-        console.log(userCreated,"userCreated register")
+        //console.log(userCreated,"userCreated register")
         res.status(201).json({ 
             message: 'Registration Successful',  
             token : await userCreated.generateToken(),userId:userCreated._id.toString() 
         }); // Send the created user as a response
-        console.log("user created sucessfully")
+        //console.log("user created sucessfully")
     } catch (error) {
         console.error('Error in register controller:', error);
         // res.status(500).json({ message: 'Internal server error' });
@@ -83,7 +83,7 @@ const login = async (req, res) => {
         //steps3: Compare the password
         // const isPasswordValid = await bcrypt.compare(password, existingUser.password) //existingUser.comparePassword(password);
         const user =  await existingUser.comparePassword(password)
-        console.log(user)
+        //console.log(user)
 
         
         if (!user) {

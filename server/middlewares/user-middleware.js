@@ -9,7 +9,7 @@ const userMiddleware=async (req, res, next)=>{
     }
 
     const jwtToken = token.replace("Bearer ","")
-    console.log(jwtToken,"token");
+    // //console.log(jwtToken,"token");
 
     try {
         const isVerified = jwt.verify(jwtToken,process.env.JWT_SECRET)

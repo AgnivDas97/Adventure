@@ -56,7 +56,12 @@ const Navbar = () => {
           <i className="fas fa-bell"></i> <span className="link-text">Notification</span>
         </NavLink>
         <button className="profile-btn" onClick={handleProfileClick}>
-          <i className="fa-solid fa-user-tie"></i>
+          {/* <i className="fa-solid fa-user-tie"></i> */}
+          <img
+                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                alt="avatar"
+                className="w-8 h-8 rounded-full bg-gray-700"
+              />
         </button>
       </nav>
 

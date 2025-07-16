@@ -8,4 +8,4 @@ const router = express.Router();
 router.route("/:chatId").get(userMiddleware, allMessages);
 router.route("/").post(userMiddleware, sendMessage);
 
-export default router;
+export default router;  
