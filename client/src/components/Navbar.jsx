@@ -17,7 +17,7 @@ const Navbar = () => {
     setShowProfileMenu(false);
   };
 
-  const {logOutUser} = useAuth()
+  const {logOutUser, user} = useAuth()
 
   const logOut=()=>{
     navigate("/");
@@ -58,7 +58,7 @@ const Navbar = () => {
         <button className="profile-btn" onClick={handleProfileClick}>
           {/* <i className="fa-solid fa-user-tie"></i> */}
           <img
-                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                src={user?.profilePhoto? user.profilePhoto : "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"}
                 alt="avatar"
                 className="w-8 h-8 rounded-full bg-gray-700"
               />

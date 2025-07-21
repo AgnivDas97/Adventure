@@ -23,6 +23,7 @@ const registerSchema = zod.object({
     .trim()
     .min(6, { message: "Password must be at least 6 characters long" })
     .max(20, { message: "Password must be less than 20 characters" }),
+  profilePhoto: zod.string().url({ message: "Invalid profile photo URL" }),
 });
 
 const loginSchema = zod.object({

@@ -114,3 +114,89 @@ body {
     .post-footer span {
         margin-right: 0.5rem;
     }
+
+
+    /* //////////////////////////////// */
+
+    .feed-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.post-card {
+  /* background: white; */
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.author {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-content {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  /* color: #333; */
+}
+
+.post-image {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.post-img {
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+}
+
+.post-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.star-button {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: gray;
+}
+
+.star-button.liked {
+  color: rgb(0, 174, 255);
+}

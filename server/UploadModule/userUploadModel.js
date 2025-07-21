@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 // context: 	"Witness the IMMORTAL story of Rama vs. Ravana Ramayana. Our Truth. Our History. Filmed for IMAX. From INDIA for a BETTER World."
 // pictures:	[]
 // like:		[]  //add user id
+// profilePhoto: "http://Cloud.com"
 // createdAt:	2025-07-14T0:00:00.565+00:00
 
 // __v:0

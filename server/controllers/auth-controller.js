@@ -27,7 +27,7 @@ const home = (req, res) => {
 
 const register = async (req, res) => {
     try {
-        const { name, email, password, phone } = req.body;
+        const { name, email, password, phone, profilePhoto } = req.body;
         //steps1: Validate the request body
         if (!name || !email || !password || !phone) {
             return res.status(400).json({ message: 'All fields are required' });
@@ -46,6 +46,7 @@ const register = async (req, res) => {
             email:email,
             password:password,
             phone:phone,
+            profilePhoto:profilePhoto
         });
         //console.log(userCreated,"userCreated register")
         res.status(201).json({ 

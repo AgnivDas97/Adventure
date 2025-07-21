@@ -26,10 +26,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    pic:{
+    profilePhoto:{
         type: String, 
-        required: false, 
-        default: "https://www.pngwing.com/en/search?q=user"
+        required: false,
+        default:"https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
     isAdmin: {
         type: Boolean,

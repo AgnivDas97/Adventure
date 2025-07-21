@@ -34,3 +34,16 @@ export const fetchSelectedData = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export const fetchAllUploadedData = async (req, res) => {
+  try {
+    const uploads = await UserUploadModel.find().populate("user", "-password");
+    if (!uploads || uploads.length === 0) {
+      return res.status(404).json({ message: "No uploads found." });
+    }
+    return res.status(200).json(uploads);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};

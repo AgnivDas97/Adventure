@@ -28,7 +28,6 @@ export const userUpload = async (req, res) => {
     }
 }
 
-
 export const fetchUserUploadedData = async (req, res) => {
     try {
         const user = req.user; // Get user from middleware
@@ -49,7 +48,6 @@ export const fetchUserUploadedData = async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
-
 
 export const postLikeController = async (req, res) => {
   try {

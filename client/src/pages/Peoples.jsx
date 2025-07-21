@@ -136,7 +136,7 @@ const Peoples = () => {
               onClick={() => fetchUserSelectedData(person._id)}
             >
               <img
-                src={person.avatar}
+                src={person.profilePhoto}
                 alt="avatar"
                 className="w-10 h-10 rounded-full bg-gray-700 border border-gray-600"
               />
@@ -166,7 +166,7 @@ const Peoples = () => {
             </div>
             <div className="flex items-center gap-4 mb-8 border-b border-gray-700 pb-4">
               <img
-                src={selectedPerson.avatar}
+                src={selectedPerson.profilePhoto}
                 alt="avatar"
                 className="w-20 h-20 rounded-full bg-gray-700 border border-gray-600"
               />
@@ -219,7 +219,7 @@ const Peoples = () => {
                     >
                       <div className="flex items-center gap-3">
                         <img
-                          src={selectedPerson.avatar}
+                          src={selectedPerson.profilePhoto}
                           alt="avatar"
                           className="w-8 h-8 rounded-full bg-gray-700 border border-gray-600"
                         />
@@ -334,7 +334,7 @@ const Peoples = () => {
               onClick={() => fetchUserSelectedData(person._id)}
             >
               <img
-                src={person.avatar}
+                src={person.profilePhoto}
                 alt="avatar"
                 className="w-10 h-10 rounded-full bg-gray-700 border border-gray-600"
               />
