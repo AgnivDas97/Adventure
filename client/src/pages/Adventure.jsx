@@ -16,7 +16,7 @@ const Adventure = () => {
                 Quasquam, voluptatibus. Lorem ipsum, dolor sit amet consectetur
                 adipisicing elit. Aperiam ipsa nam rerum delectus, optio quidem
                 mollitia autem quia eveniet quod facere libero vero ducimus
-                neque nulla earum magni placeat fuga.
+                neque nulla earum magni placeat fuga. something i add
               </p>
               <div className="button-group">
                 <a href="/sign-in" className="btn-primary">
